@@ -11,11 +11,9 @@ public class ValidationMsg {
 	public static final String TYPE_ERROR="Type error.";
 	public static final String QUIZID_ERROR="Quiz ID error.";
 	
-	public static final String NAME_ERROR="Name error.";
-	public static final String EMAIL_ERROR="Email error.";
-	public static final String PHONE_ERROR="Phone error.";
-	public static final String BIRTH_DATE_ERROR="Birth date error.";
-	public static final String GENDER_ERROR="Gender error.";
-	public static final String PASSWORD_ERROR="Password error.";
-	public static final String ADMIN_ERROR="Admin error.";
+	public static final String USER_NAME_IS_EMPTY="User name is empty";
+	public static final String EMAIL_IS_EMPTY="Email is empty.";
+	public static final String USER_AGE_ERROR="User age error.";
+	public static final String QUESTION_ID_ERROR="Question ID error.";
+	public static final String ANSWERVO_IS_EMPTY="AnswerVo is empty.";
 }

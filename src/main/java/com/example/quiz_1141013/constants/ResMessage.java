@@ -16,7 +16,10 @@ public enum ResMessage {
 	ADMIN_ERROR(400, "Admin error."),//
 	PLEASE_LOGIN_FIRST(400, "Please login first."),
 	QUIZID_MISMATCH(400, "Quiz ID mismatch."),
-	QUIZ_NOT_FOUND(404, "Quiz not found.");
+	QUIZ_NOT_FOUND(404, "Quiz not found."),
+	QUESTION_NOT_FOUND(404, "Question not found."),
+	OPTION_NAME_MISMATCH(400, "Option name mismatch."),
+	ANSWER_REQUIRED(400, "Answer required.");
 	
 	
 	private int code;

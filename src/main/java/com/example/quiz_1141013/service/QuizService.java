@@ -1,6 +1,7 @@
 package com.example.quiz_1141013.service;
 
 import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,6 @@ import com.example.quiz_1141013.dao.QuestionDao;
 import com.example.quiz_1141013.dao.QuizDao;
 import com.example.quiz_1141013.entity.Question;
 import com.example.quiz_1141013.entity.Quiz;
-import com.example.quiz_1141013.request.MemberCreateReq;
 import com.example.quiz_1141013.request.QuizCreateReq;
 import com.example.quiz_1141013.request.QuizUpdateReq;
 import com.example.quiz_1141013.response.BasicRes;
@@ -95,6 +95,7 @@ public class QuizService {
 		}
 		return new BasicRes(ResMessage.SUCCESS.getCode(), ResMessage.SUCCESS.getMessage());
 	}
+	
 	@Transactional(rollbackFor = Exception.class)
 	public BasicRes update(QuizUpdateReq req) throws Exception {
 		/* 方法 check 中的參數資料型態是 QuizCreateReq，對 QuizUpdateReq 來說是父類別，
@@ -109,7 +110,7 @@ public class QuizService {
 		}
 		//檢查quizId和QuestionVo中的quizId是否相同
 		for(QuestionVo vo:req.getQuestionVoList()) {
-			if(req.getQuizId()!=vo.getQuestionId()) {
+			if(req.getQuizId()!=vo.getQuizId()) {
 				return new BasicRes(ResMessage.QUIZID_MISMATCH.getCode(), ResMessage.QUIZID_MISMATCH.getMessage());
 			}
 		}

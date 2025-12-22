@@ -23,7 +23,7 @@ public interface QuizDao extends JpaRepository<Quiz, Integer> {
 	@Modifying
 	@Transactional
 	@Query(value="update quiz set title=?2, description=?3, start_date=?4,"//
-			+ " end_date=?5, publish=?6 where id=?1", nativeQuery = true)
+			+ " end_date=?5, published=?6 where id=?1", nativeQuery = true)
 	public int update(int quizId, String title, String description, LocalDate startDate, LocalDate endDate, boolean published);
 	
 	@Query(value="select max(id) from quiz", nativeQuery = true)

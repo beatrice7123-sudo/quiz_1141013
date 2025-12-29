@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.quiz_1141013.constants.ValidationMsg;
 import com.example.quiz_1141013.vo.AnswerVo;
 import com.example.quiz_1141013.vo.Answers;
+import com.fasterxml.jackson.annotation.JsonAlias;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
@@ -18,8 +19,9 @@ public class FillinReq {
 	private String phone;
 	@NotBlank(message = ValidationMsg.EMAIL_IS_EMPTY)
 	private String email;
-	@Min(value = 18, message = ValidationMsg.USER_AGE_ERROR)
+	@Min(value = 1, message = ValidationMsg.USER_AGE_ERROR)
 	private int age;
+	@JsonAlias(value="id")
 	@Min(value = 1, message = ValidationMsg.QUIZID_ERROR)
 	private int quizId;
 	@Valid
@@ -77,12 +79,12 @@ public class FillinReq {
 		super();
 	}
 
-	public FillinReq(String name, String phone, String email, int age, int quizId, List<Answers> answers) {
+	public FillinReq(String name, String phone, String email, /*int age,*/ int quizId, List<Answers> answers) {
 		super();
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
-		this.age = age;
+//		this.age = age;
 		this.quizId = quizId;
 		this.answers = answers;
 	}

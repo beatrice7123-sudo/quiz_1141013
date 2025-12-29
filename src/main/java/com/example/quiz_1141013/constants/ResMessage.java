@@ -9,6 +9,7 @@ public enum ResMessage {
 	
 	NAME_ERROR(400, "Name error."),//
 	EMAIL_ERROR(400, "Email error."),//
+	EMAIL_MISMATCH(400, "Email mismatch."),//
 	PHONE_ERROR(400, "Phone error."),//
 	BIRTH_DATE_ERROR(400, "Birth date error."),//
 	GENDER_ERROR(400, "Gender error."),//

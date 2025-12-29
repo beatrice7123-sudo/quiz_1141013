@@ -26,6 +26,11 @@ public interface QuizDao extends JpaRepository<Quiz, Integer> {
 			+ " end_date=?5, published=?6 where id=?1", nativeQuery = true)
 	public int update(int quizId, String title, String description, LocalDate startDate, LocalDate endDate, boolean published);
 	
+	@Modifying
+	@Transactional
+	@Query(value="delete from quiz where id=?", nativeQuery = true)
+	public int delete(int quizId);
+	
 	@Query(value="select max(id) from quiz", nativeQuery = true)
 	public int getMaxId();
 	

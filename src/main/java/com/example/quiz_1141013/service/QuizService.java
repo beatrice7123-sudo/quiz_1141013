@@ -18,6 +18,7 @@ import com.example.quiz_1141013.dao.QuizDao;
 import com.example.quiz_1141013.entity.Question;
 import com.example.quiz_1141013.entity.Quiz;
 import com.example.quiz_1141013.request.QuizCreateReq;
+import com.example.quiz_1141013.request.QuizDeleteReq;
 import com.example.quiz_1141013.request.QuizUpdateReq;
 import com.example.quiz_1141013.response.BasicRes;
 import com.example.quiz_1141013.response.GetListRes;
@@ -131,6 +132,21 @@ public class QuizService {
 						v.getType(), v.isRequired(), optionsListStr);
 			} catch (Exception e) {
 				throw e;
+			}
+		}
+		return new BasicRes(ResMessage.SUCCESS.getCode(), ResMessage.SUCCESS.getMessage());
+	}
+	
+	public BasicRes delete(List<Integer> quizId) {
+		//檢查題目是否存在
+		for(Integer q:quizId) {
+			if(quizDao.getByQuizId(q)==null) {
+				return new BasicRes(ResMessage.QUIZID_MISMATCH.getCode(), ResMessage.QUIZID_MISMATCH.getMessage());
+			}else {
+				//刪除quiz
+				quizDao.delete(q);
+				//確定quizId有存在，就刪掉全部問題
+				questionDao.deleteByQuizId(q);
 			}
 		}
 		return new BasicRes(ResMessage.SUCCESS.getCode(), ResMessage.SUCCESS.getMessage());

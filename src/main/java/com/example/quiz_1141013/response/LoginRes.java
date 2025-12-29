@@ -1,39 +1,41 @@
-package com.example.quiz_1141013.entity;
+package com.example.quiz_1141013.response;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.*;
+import com.example.quiz_1141013.entity.User;
 
-@Entity
-@Table(name="user")
-public class User {
-	@Column(name="name")
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+
+public class LoginRes extends BasicRes{
 	private String name;
-	@Column(name="password")
-	private String password;
-	@Column(name="phone")
 	private String phone;
-	@Id
-	@Column(name="email")
 	private String email;
-	@Column(name="birthDate")
 	private LocalDate birthDate;
-	@Column(name="gender")
 	private String gender;
-	@Column(name="admin")
 	private boolean admin;
 	
+	public LoginRes() {
+		super();
+	}
+	public LoginRes(int code, String message) {
+		super(code, message);
+	}
+	public LoginRes(int code, String message, String name, String phone, String email, LocalDate birthDate,
+			String gender, boolean admin) {
+		super(code, message);
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.birthDate = birthDate;
+		this.gender = gender;
+		this.admin = admin;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	public String getPhone() {
 		return phone;
@@ -65,4 +67,5 @@ public class User {
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
+	
 }

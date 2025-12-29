@@ -23,6 +23,7 @@ public class Fillin {
 	@Column(name="fillinDate")
 	private LocalDate fillinDate;
 	
+	
 	public int getQuizId() {
 		return quizId;
 	}

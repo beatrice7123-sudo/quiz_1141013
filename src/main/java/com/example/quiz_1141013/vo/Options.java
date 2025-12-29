@@ -16,4 +16,13 @@ public class Options {
 	public void setOptionName(String optionName) {
 		this.optionName = optionName;
 	}
+	
+	public Options() {
+		super();
+	}
+	public Options(int code, String optionName) {
+		super();
+		this.code = code;
+		this.optionName = optionName;
+	}
 }
